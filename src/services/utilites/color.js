@@ -14,4 +14,5 @@ export const colors = {
   moreHorizColor: "#E7E7E7",
   modalbgColor: "#505050",
   arrowBackColor: "#FFFFFF",
+  purple: "purple",
 };
