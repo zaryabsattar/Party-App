@@ -1,0 +1,17 @@
+export const colors = {
+  buttonTxtColor: "#FFFFFF",
+  borderColor: "#F83094",
+  textInputbgColor: "#81818126",
+  textInputColor: "#FFFFFF",
+  buttonbgColor: "#000000",
+  someButtonbgColor: "#050522",
+  textColor: '#FFFFFF',
+  btnFbandGoglebgColor: "#FFFFFF36",
+  txtColor: "#E3E3E3",
+  headerTxtColor: "#FFFFFF",
+  searchandTunebg: "#F83094",
+  searchandTuneIcon: "#FFFFFF",
+  moreHorizColor: "#E7E7E7",
+  modalbgColor: "#505050",
+  arrowBackColor: "#FFFFFF",
+};
