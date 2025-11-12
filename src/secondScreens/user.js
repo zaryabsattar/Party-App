@@ -6,12 +6,13 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const UserScreen = ({ navigation }) => {
     return (
         <SimpleBackground>
-           <KeyboardScrollVeiw>
+            <ScrollViews.WithKeyboardAvoidingView>
                 <View style={styles.main} >
 
                     <ImageBackground source={require("../assets/image/user1.jpg")} style={styles.user1Photo} >
@@ -234,10 +235,9 @@ const UserScreen = ({ navigation }) => {
                         </LinearGradient>
                     </ImageBackground>
 
-
                 </View>
-
-          </KeyboardScrollVeiw>
+                <View style={{ marginBottom: responsiveHeight(2) }} />
+            </ScrollViews.WithKeyboardAvoidingView>
 
         </SimpleBackground >
 
@@ -255,7 +255,7 @@ const styles = StyleSheet.create({
     },
     txtuser: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
     },
     user1Photo: {
@@ -282,13 +282,13 @@ const styles = StyleSheet.create({
     },
     ahmad: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
 
     },
     email: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#9E9E9E'
     },
     box: {
@@ -308,12 +308,12 @@ const styles = StyleSheet.create({
     },
     number: {
         fontSize: responsiveFontSize(16),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
     },
     label: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: "#A5A5A5",
         marginTop: responsiveHeight(0.5)
 
@@ -336,7 +336,7 @@ const styles = StyleSheet.create({
     },
     txtFollownmsg: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.buttonTxtColor,
     },
     btnmsg: {
@@ -352,7 +352,7 @@ const styles = StyleSheet.create({
     },
     Description: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         paddingHorizontal: responsiveWidth(5),
         bottom: responsiveHeight(4)
@@ -367,14 +367,14 @@ const styles = StyleSheet.create({
     },
     DescriptionBoxTxt: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: '#FFFFFF99',
         paddingHorizontal: responsiveWidth(3),
         paddingVertical: responsiveHeight(2)
     },
     parties: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         paddingVertical: responsiveHeight(0.7),
         paddingHorizontal: responsiveWidth(4),
@@ -399,7 +399,7 @@ const styles = StyleSheet.create({
     },
     partiesPhotobtnTxt: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
     },
     partiesPhotoiconvisibilityBtn: {
@@ -416,24 +416,23 @@ const styles = StyleSheet.create({
         width: size.photoWidth,
         height: size.photoHeight,
         borderRadius: size.photoBorderRadius,
-
     },
     txtEllipse1115: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
         paddingHorizontal: responsiveWidth(2.5)
     },
     secondtxtEllipse1115: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
         marginRight: responsiveWidth(20),
         bottom: responsiveHeight(3.5),
     },
     thirdEllipse1115: {
         fontSize: responsiveFontSize(10),
-        fontWeight: '400',
+        fontFamily: appfonts.poppinsRegular,
         color: '#F2F2F2',
     },
 

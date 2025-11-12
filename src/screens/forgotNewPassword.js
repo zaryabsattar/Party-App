@@ -7,7 +7,8 @@ import { colors } from "../services/utilites/color";
 import { images } from "../services/utilites/assest/images";
 import { responsiveHeight } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const ForgotNewPasswordScreen = ({ navigation }) => {
 
@@ -16,7 +17,7 @@ const ForgotNewPasswordScreen = ({ navigation }) => {
 
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
+            <ScrollViews.WithKeyboardAvoidingView>
             <View style={styles.main}>
 
                 <TouchableOpacity
@@ -62,7 +63,7 @@ const ForgotNewPasswordScreen = ({ navigation }) => {
                 </FancyCardBackground>
 
             </View>
-            </KeyboardScrollVeiw>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
     )
 };
@@ -83,13 +84,13 @@ const styles = StyleSheet.create({
     },
     txtFP: {
         fontSize: size.header,
-        fontWeight: 'bold',
+        fontFamily: appfonts.openSansBold,
         color: colors.headerTxtColor,
         margin: size.headerMargin
     },
     txtInput: {
         fontSize: size.TextInputFontSize,
-        fontWeight: 'regular',
+        fontFamily: appfonts.openSansRegular,
         width: size.TextInputWidth,
         height: size.TextInputHeight,
         borderRadius: size.buttonBorderRadios,
@@ -115,7 +116,7 @@ const styles = StyleSheet.create({
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
         textAlign: 'center',
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
 
 })

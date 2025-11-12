@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const RecentActivityScreen = ({ navigation }) => {
@@ -46,6 +47,8 @@ const RecentActivityScreen = ({ navigation }) => {
                     data={Users}
                     keyExtractor={item => item.id}
                     numColumns={2}
+                    contentContainerStyle={{ alignItems: 'center' }}
+                    columnWrapperStyle={{ justifyContent: 'center' }}
                     renderItem={({ item }) => <View style={styles.box}>
                         <ImageBackground
                             source={item.imageBackground}
@@ -114,12 +117,12 @@ const styles = StyleSheet.create({
         flexDirection: "row",
         alignItems: 'center',
         justifyContent: "space-between",
-        padding: responsiveWidth(2),
+        padding: responsiveWidth(3),
         paddingVertical: responsiveHeight(4)
     },
     header: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         paddingHorizontal: responsiveWidth(20)
     },
@@ -129,7 +132,7 @@ const styles = StyleSheet.create({
         borderRadius: responsiveFontSize(22),
         backgroundColor: "#81818126",
         margin: responsiveWidth(2),
-        alignSelf: 'center'
+        alignSelf: 'center',
     },
     imgbg: {
         width: responsiveWidth(44),
@@ -142,7 +145,7 @@ const styles = StyleSheet.create({
     },
     iconTxt: {
         fontSize: responsiveFontSize(10),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         paddingHorizontal: responsiveWidth(1),
     },
@@ -167,13 +170,13 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(12),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         paddingHorizontal: responsiveWidth(1.7),
     },
     country: {
         fontSize: responsiveFontSize(10),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: "#FFFFFFB2",
         paddingHorizontal: responsiveWidth(1.7),
     },
@@ -191,7 +194,7 @@ const styles = StyleSheet.create({
     },
     menuTxt: {
         fontSize: responsiveFontSize(12),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         paddingHorizontal: responsiveWidth(2.5),
     },

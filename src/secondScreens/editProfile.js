@@ -6,7 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const EditProfileScreen = ({ navigation }) => {
 
@@ -114,7 +114,7 @@ const styles = StyleSheet.create({
     },
     txtProfile: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
     },
     firstProfilePhoto: {
@@ -150,7 +150,7 @@ const styles = StyleSheet.create({
     },
     txtInput: {
         fontSize: size.TextInputFontSize,
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: colors.textInputColor,
         paddingHorizontal: responsiveWidth(4)
     },
@@ -168,7 +168,7 @@ const styles = StyleSheet.create({
     },
     btn: {
         fontSize: size.buttonText,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.buttonTxtColor,
     }
 

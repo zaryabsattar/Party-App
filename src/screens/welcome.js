@@ -6,7 +6,6 @@ import { images } from "../services/utilites/assest/images";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
 import { colors } from "../services/utilites/color";
-import KeyboardScrollVeiw from "../services/utilites/assest/scrollVeiw";
 import {appfonts} from "../services/utilites/assest/fonts"
 
 const WelcomeScreen = () => {
@@ -15,8 +14,6 @@ const WelcomeScreen = () => {
 
     return (
         <PartyBackground>
-            <KeyboardScrollVeiw>
-
                 <View style={styles.main}>
                     <Image source={require("../assets/image/Vector1.png")} style={styles.imgA} />
                     <Image source={require("../assets/image/Ellipse1104.png")} style={styles.imgB} />
@@ -64,7 +61,7 @@ const WelcomeScreen = () => {
                                 style={{
                                     fontSize: responsiveFontSize(16),
                                     color: '#F83094',
-                                    fontWeight: '600',
+                                    fontFamily: appfonts.openSansSemiBold,
 
                                 }}>
                                 Login
@@ -74,7 +71,6 @@ const WelcomeScreen = () => {
                     </View>
 
                 </View>
-            </KeyboardScrollVeiw>
         </PartyBackground>
     )
 };
@@ -138,7 +134,7 @@ const styles = StyleSheet.create({
     TxtB: {
         fontSize: responsiveFontSize(17),
         color: colors.textColor,
-        lineHeight: '100%',
+        fontFamily: appfonts.openSansRegular,
     },
     btn: {
         marginTop: responsiveHeight(2),
@@ -156,7 +152,7 @@ const styles = StyleSheet.create({
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
         textAlign: 'center',
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold
     },
 
 

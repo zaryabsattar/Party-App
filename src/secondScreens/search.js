@@ -5,7 +5,8 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const SearchScreen = ({ navigation }) => {
@@ -13,123 +14,124 @@ const SearchScreen = ({ navigation }) => {
     const [text, setText] = useState("");
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
-            <View style={styles.main}>
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main}>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("RecentScreen")}
-                    style={styles.back} >
-                    <Icon
-                        name='arrow-back'
-                        color={colors.arrowBackColor}
-                        size={size.arrowBackSize}
-                    />
-                </TouchableOpacity>
-
-                <Text style={styles.txtS}>Search</Text>
-
-
-                <View
-                    style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        paddingVertical: responsiveHeight(2)
-                    }}>
-                    <View style={styles.txtInputbg}>
-                        <TextInput
-                            placeholder="Ratrya |"
-                            placeholderTextColor='#FFFFFF'
-                            value={text}
-                            onChangeText={setText}
-                            style={styles.txtInput}
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("RecentScreen")}
+                        style={styles.back} >
+                        <Icon
+                            name='arrow-back'
+                            color={colors.arrowBackColor}
+                            size={size.arrowBackSize}
                         />
+                    </TouchableOpacity>
 
-                        <TouchableOpacity>
-                            <Icon
-                                name='search'
-                                size={responsiveFontSize(30)}
-                                color={colors.searchandTuneIcon}
-                                style={styles.searchIcon}
+                    <Text style={styles.txtS}>Search</Text>
+
+
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            paddingVertical: responsiveHeight(2),
+                            paddingHorizontal: responsiveWidth(4)
+                        }}>
+                        <View style={styles.txtInputbg}>
+                            <TextInput
+                                placeholder="Ratrya |"
+                                placeholderTextColor='#FFFFFF'
+                                value={text}
+                                onChangeText={setText}
+                                style={styles.txtInput}
                             />
+
+                            <TouchableOpacity>
+                                <Icon
+                                    name='search'
+                                    size={responsiveFontSize(30)}
+                                    color={colors.searchandTuneIcon}
+                                    style={styles.searchIcon}
+                                />
+                            </TouchableOpacity>
+                        </View>
+
+                        <TouchableOpacity style={styles.tuneIcon}>
+                            <Icon name='tune' size={responsiveFontSize(30)} color={colors.searchandTuneIcon} />
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={styles.tuneIcon}>
-                        <Icon name='tune' size={responsiveFontSize(30)} color={colors.searchandTuneIcon} />
-                    </TouchableOpacity>
-                </View>
-
-                <View
-                    style={{
-                        width: responsiveWidth(90),
-                        borderBottomWidth: 1,
-                        borderBottomColor: '#888585',
-                        paddingVertical: responsiveHeight(1),
-                        alignSelf: 'center'
-                    }}>
-                    <Text style={styles.txtSearch}>Ratrya Chandriya</Text>
-                    <Text style={styles.txtSearch}>Ratrya Pandya</Text>
-                    <Text style={styles.txtSearch}>Ratrya Chandra</Text>
-                    <Text style={styles.txtSearch}>Ratrya Ratta</Text>
-                </View>
-
-
-                <View style={styles.btn}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
-                        <Image source={require("../assets/image/Ellipse1122.jpg")} style={styles.Ellipse1112} />
-                        <View style={{ flex: 1, alignItems: 'flex-start', }}>
-                            <Text style={styles.btnTxt}>Ratrya Chandriya</Text>
-                        </View>
-                        <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
+                    <View
+                        style={{
+                            width: responsiveWidth(90),
+                            borderBottomWidth: 1,
+                            borderBottomColor: '#888585',
+                            paddingVertical: responsiveHeight(1),
+                            alignSelf: 'center'
+                        }}>
+                        <Text style={styles.txtSearch}>Ratrya Chandriya</Text>
+                        <Text style={styles.txtSearch}>Ratrya Pandya</Text>
+                        <Text style={styles.txtSearch}>Ratrya Chandra</Text>
+                        <Text style={styles.txtSearch}>Ratrya Ratta</Text>
                     </View>
-                </View>
 
 
-                <View style={styles.btn}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
-                        <Image source={require("../assets/image/Ellipse1124.jpg")} style={styles.Ellipse1112} />
-                        <View style={{ flex: 1, alignItems: 'flex-start', }}>
-                            <Text style={styles.btnTxt}>Ratrya Pandya</Text>
+                    <View style={styles.btn}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
+                            <Image source={require("../assets/image/Ellipse1122.jpg")} style={styles.Ellipse1112} />
+                            <View style={{ flex: 1, alignItems: 'flex-start', }}>
+                                <Text style={styles.btnTxt}>Ratrya Chandriya</Text>
+                            </View>
+                            <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                         </View>
-                        <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                     </View>
-                </View>
 
 
-                <View style={styles.btn}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
-                        <Image source={require("../assets/image/Ellipse0000.jpg")} style={styles.Ellipse1112} />
-                        <View style={{ flex: 1, alignItems: 'flex-start', }}>
-                            <Text style={styles.btnTxt}>Ratrya Komal</Text>
+                    <View style={styles.btn}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
+                            <Image source={require("../assets/image/Ellipse1124.jpg")} style={styles.Ellipse1112} />
+                            <View style={{ flex: 1, alignItems: 'flex-start', }}>
+                                <Text style={styles.btnTxt}>Ratrya Pandya</Text>
+                            </View>
+                            <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                         </View>
-                        <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                     </View>
-                </View>
 
 
-                <View style={styles.btn}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
-                        <Image source={require("../assets/image/Ellipse0001.jpg")} style={styles.Ellipse1112} />
-                        <View style={{ flex: 1, alignItems: 'flex-start', }}>
-                            <Text style={styles.btnTxt}>Ratrya Mins</Text>
+                    <View style={styles.btn}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
+                            <Image source={require("../assets/image/Ellipse0000.jpg")} style={styles.Ellipse1112} />
+                            <View style={{ flex: 1, alignItems: 'flex-start', }}>
+                                <Text style={styles.btnTxt}>Ratrya Komal</Text>
+                            </View>
+                            <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                         </View>
-                        <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                     </View>
-                </View>
 
 
-                <View style={styles.btn}>
-                    <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
-                        <Image source={require("../assets/image/Ellipse1124.jpg")} style={styles.Ellipse1112} />
-                        <View style={{ flex: 1, alignItems: 'flex-start', }}>
-                            <Text style={styles.btnTxt}>Ratrya Chupra</Text>
+                    <View style={styles.btn}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
+                            <Image source={require("../assets/image/Ellipse0001.jpg")} style={styles.Ellipse1112} />
+                            <View style={{ flex: 1, alignItems: 'flex-start', }}>
+                                <Text style={styles.btnTxt}>Ratrya Mins</Text>
+                            </View>
+                            <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                         </View>
-                        <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
                     </View>
-                </View>
 
-            </View>
-            </KeyboardScrollVeiw>
+
+                    <View style={styles.btn}>
+                        <View style={{ flexDirection: 'row', alignItems: 'center', flex: 1, paddingHorizontal: responsiveWidth(3) }}>
+                            <Image source={require("../assets/image/Ellipse1124.jpg")} style={styles.Ellipse1112} />
+                            <View style={{ flex: 1, alignItems: 'flex-start', }}>
+                                <Text style={styles.btnTxt}>Ratrya Chupra</Text>
+                            </View>
+                            <Icon name="chevron-right" size={responsiveFontSize(22)} color="#FFFFFF" />
+                        </View>
+                    </View>
+
+                </View>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
     )
 };
@@ -139,18 +141,19 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     back: {
-        paddingTop: responsiveFontSize(22)
+        paddingTop: responsiveFontSize(22),
+        paddingHorizontal: responsiveWidth(2)
     },
     txtS: {
         fontSize: size.header,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
-        marginLeft: responsiveWidth(2),
+        marginLeft: responsiveWidth(5),
         marginTop: responsiveHeight(2)
     },
     txtInput: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansSemiBold,
         paddingHorizontal: responsiveWidth(3),
         color: colors.textInputColor,
     },
@@ -179,7 +182,7 @@ const styles = StyleSheet.create({
     },
     txtSearch: {
         fontSize: responsiveFontSize(14),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         paddingVertical: responsiveHeight(0.5)
     },
@@ -201,7 +204,7 @@ const styles = StyleSheet.create({
         fontSize: responsiveFontSize(16),
         paddingHorizontal: responsiveWidth(5),
         paddingVertical: responsiveHeight(1),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
     Ellipse1112: {
         width: size.photoWidth,

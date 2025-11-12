@@ -7,6 +7,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const CurrentPartyScreen = ({ navigation }) => {
     const [showModal, setShowModal] = useState(false);
@@ -185,7 +186,7 @@ const styles = StyleSheet.create({
     headerText: {
         color: colors.headerTxtColor,
         fontSize: size.secondHeader,
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
     },
     photo: {
         height: responsiveHeight(50),
@@ -199,7 +200,7 @@ const styles = StyleSheet.create({
     },
     title: {
         fontSize: responsiveFontSize(32),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
         paddingHorizontal: responsiveWidth(5),
         paddingVertical: responsiveHeight(1)
@@ -215,13 +216,13 @@ const styles = StyleSheet.create({
     },
     viewerTxt: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
         paddingHorizontal: responsiveWidth(2)
     },
     comment: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: '#FFFFFF99',
         paddingHorizontal: responsiveWidth(5),
         paddingVertical: responsiveHeight(1.5)
@@ -242,7 +243,7 @@ const styles = StyleSheet.create({
     },
     heading: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF'
     },
     img: {
@@ -255,7 +256,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(14),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: "#A5A5A5",
         paddingVertical: responsiveHeight(1.5),
     },
@@ -264,13 +265,14 @@ const styles = StyleSheet.create({
         width: size.photoWidth,
         borderRadius: size.photoBorderRadius,
         backgroundColor: "#D9D9D9",
-        padding: responsiveWidth(3),
+        padding: responsiveWidth(2.8),
     },
     moreBox: {
         height: size.photoHeight,
         width: size.photoWidth,
         borderRadius: size.photoBorderRadius,
         backgroundColor: "#D9D9D9",
+        padding: responsiveWidth(0.8),
     },
 
 

@@ -7,7 +7,8 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const PartyNamesScreen = ({ navigation }) => {
@@ -21,73 +22,73 @@ const PartyNamesScreen = ({ navigation }) => {
 
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
-            <View style={styles.main}>
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main}>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("RecentScreen")}
-                    style={styles.back} >
-                    <MaterialIcon
-                        name='arrow-back'
-                        color={colors.arrowBackColor}
-                        size={size.arrowBackSize}
-                    />
-                </TouchableOpacity>
-
-                <Text style={styles.txtS}>Party Names</Text>
-
-
-                <View
-                    style={{
-                        flexDirection: 'row',
-                        justifyContent: 'space-between',
-                        paddingVertical: responsiveHeight(2)
-                    }}>
-
-                    <View style={styles.txtInputbg}>
-                        <TextInput
-                            placeholder="Ratrya |"
-                            placeholderTextColor='#FFFFFF'
-                            value={text}
-                            onChangeText={setText}
-                            style={styles.txtInput}
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("RecentScreen")}
+                        style={styles.back} >
+                        <MaterialIcon
+                            name='arrow-back'
+                            color={colors.arrowBackColor}
+                            size={size.arrowBackSize}
                         />
+                    </TouchableOpacity>
 
-                        <TouchableOpacity>
+                    <Text style={styles.txtS}>Party Names</Text>
+
+
+                    <View
+                        style={{
+                            flexDirection: 'row',
+                            justifyContent: 'space-between',
+                            paddingVertical: responsiveHeight(2)
+                        }}>
+
+                        <View style={styles.txtInputbg}>
+                            <TextInput
+                                placeholder="Ratrya |"
+                                placeholderTextColor='#FFFFFF'
+                                value={text}
+                                onChangeText={setText}
+                                style={styles.txtInput}
+                            />
+
+                            <TouchableOpacity>
+                                <MaterialIcon
+                                    name='search'
+                                    size={responsiveFontSize(30)}
+                                    color={colors.searchandTuneIcon}
+                                    style={styles.searchIcon} />
+                            </TouchableOpacity>
+                        </View>
+
+                        <TouchableOpacity style={styles.tuneIcon}>
                             <MaterialIcon
-                                name='search'
+                                name='tune'
                                 size={responsiveFontSize(30)}
                                 color={colors.searchandTuneIcon}
-                                style={styles.searchIcon} />
+                            />
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity style={styles.tuneIcon}>
-                        <MaterialIcon
-                            name='tune'
-                            size={responsiveFontSize(30)}
-                            color={colors.searchandTuneIcon}
-                        />
-                    </TouchableOpacity>
-                </View>
+
+                    <View
+                        style={{
+                            width: responsiveWidth(90),
+                            borderBottomWidth: 1,
+                            borderBottomColor: '#888585',
+                            paddingVertical: responsiveHeight(2),
+                            alignSelf: 'center'
+                        }}>
+                        <Text style={styles.txtSearch}>Cricket live match</Text>
+                        <Text style={styles.txtSearch}>Cricket highlight match</Text>
+                        <Text style={styles.txtSearch}>Cricket super match</Text>
+                        <Text style={styles.txtSearch}>Cricket news</Text>
+                    </View>
 
 
-                <View
-                    style={{
-                        width: responsiveWidth(90),
-                        borderBottomWidth: 1,
-                        borderBottomColor: '#888585',
-                        paddingVertical: responsiveHeight(2),
-                        alignSelf: 'center'
-                    }}>
-                    <Text style={styles.txtSearch}>Cricket live match</Text>
-                    <Text style={styles.txtSearch}>Cricket highlight match</Text>
-                    <Text style={styles.txtSearch}>Cricket super match</Text>
-                    <Text style={styles.txtSearch}>Cricket news</Text>
-                </View>
 
-
-                
 
                     <View style={{ marginTop: responsiveHeight(5), }}>
 
@@ -463,12 +464,9 @@ const PartyNamesScreen = ({ navigation }) => {
                         </ImageBackground>
                     </View>
 
-
-                
-
-
-            </View>
-            </KeyboardScrollVeiw>
+                </View>
+                <View style={{ marginBottom: responsiveHeight(2) }} />
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground >
     )
 };
@@ -476,23 +474,21 @@ const PartyNamesScreen = ({ navigation }) => {
 const styles = StyleSheet.create({
     main: {
         flex: 1,
-    },
-    scroll: {
-        paddingBottom: responsiveHeight(3)
+        paddingHorizontal: responsiveWidth(4)
     },
     back: {
         paddingTop: responsiveFontSize(22)
     },
     txtS: {
         fontSize: size.header,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         marginLeft: responsiveWidth(2),
         marginTop: responsiveHeight(2)
     },
     txtInput: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansSemiBold,
         paddingHorizontal: responsiveWidth(3),
         color: colors.textInputColor,
     },
@@ -521,7 +517,7 @@ const styles = StyleSheet.create({
     },
     txtSearch: {
         fontSize: responsiveFontSize(14),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         paddingVertical: responsiveHeight(0.5)
     },
@@ -537,7 +533,7 @@ const styles = StyleSheet.create({
     },
     txtLive: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#F2F2F2',
         width: responsiveWidth(12),
         height: responsiveHeight(3.8),
@@ -548,7 +544,7 @@ const styles = StyleSheet.create({
     },
     txtIcon: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
     },
     visibiity: {
@@ -579,7 +575,7 @@ const styles = StyleSheet.create({
     },
     txtModal: {
         color: colors.textColor,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         fontSize: responsiveFontSize(10),
         paddingHorizontal: responsiveHeight(0.7),
         paddingVertical: responsiveWidth(1.6),
@@ -597,20 +593,20 @@ const styles = StyleSheet.create({
     },
     txtEllipse1116: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
         paddingHorizontal: responsiveWidth(3)
     },
     secondtxtEllipse1116: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
         marginRight: responsiveWidth(21),
         bottom: responsiveHeight(4),
     },
     thirdEllipse1116: {
         fontSize: responsiveFontSize(10),
-        fontWeight: '400',
+        fontFamily: appfonts.poppinsRegular,
         color: '#F2F2F2',
     },
     absoluteFillObject: {

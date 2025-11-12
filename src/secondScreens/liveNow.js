@@ -6,8 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-
-
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const LiveNowScreen = ({ navigation }) => {
 
@@ -135,7 +134,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         bottom: responsiveHeight(6)
     },
@@ -158,7 +157,7 @@ const styles = StyleSheet.create({
     },
     live: {
         fontSize: responsiveFontSize(22),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F2F2F2',
         paddingHorizontal: responsiveWidth(2),
     },
@@ -185,9 +184,9 @@ const styles = StyleSheet.create({
     },
     btnTxt: {
         fontSize: size.buttonText,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
-    },  
+    },
     container: {
         flex: 1,
         width: responsiveWidth(100),
@@ -205,12 +204,12 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(20),
-        fontWeight: "700",
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
     },
     status: {
         fontSize: responsiveFontSize(14),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF80',
     },
 

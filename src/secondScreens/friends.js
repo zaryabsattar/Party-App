@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const FriendsScreen = ({ navigation }) => {
 
@@ -176,7 +177,7 @@ const styles = StyleSheet.create({
     },
     back: {
         paddingTop: size.arrowBackPadding,
-
+       paddingHorizontal: responsiveWidth(3)
     },
     txtInputBox: {
         height: size.TextInputHeight,
@@ -189,7 +190,7 @@ const styles = StyleSheet.create({
     },
     txtInput: {
         fontSize: size.TextInputFontSize,
-        fontWeight: "400",
+        fontFamily: appfonts.openSansRegular,
         color: colors.textInputColor,
         paddingHorizontal: responsiveWidth(4)
     },
@@ -203,7 +204,7 @@ const styles = StyleSheet.create({
     },
     header: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         bottom: responsiveHeight(4)
     },
@@ -225,7 +226,7 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         flex: 1,
         paddingHorizontal: responsiveWidth(4)
@@ -262,7 +263,7 @@ const styles = StyleSheet.create({
     },
     btnTxt: {
         fontSize: size.buttonText,
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.buttonTxtColor
     }
 });

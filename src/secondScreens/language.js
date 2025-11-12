@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const LanguageScreen = ({ navigation }) => {
@@ -134,10 +135,11 @@ const styles = StyleSheet.create({
     },
     back: {
         paddingTop: size.arrowBackPadding,
+        paddingHorizontal: responsiveWidth(3)
     },
     header: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         bottom: responsiveHeight(3)
     },
@@ -154,7 +156,7 @@ const styles = StyleSheet.create({
     },
     language: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
     },
     radio: {

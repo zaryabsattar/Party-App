@@ -5,6 +5,7 @@ import SimpleBackground from "../component/simpleBgColor";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const FilterScreen = ({ navigation }) => {
 
@@ -59,6 +60,8 @@ const FilterScreen = ({ navigation }) => {
           data={Data}
           keyExtractor={(item) => item.id}
           numColumns={3}
+          contentContainerStyle={{ alignItems: 'center' }}
+          columnWrapperStyle={{ justifyContent: 'center' }}
           renderItem={({ item }) => <View style={{ paddingHorizontal: responsiveWidth(2), marginTop: responsiveHeight(2) }}>
             <TouchableOpacity
               onPress={() => setSelectedGame(item.id)}
@@ -113,20 +116,22 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   back: {
-  paddingTop: size.arrowBackPadding
+    paddingTop: size.arrowBackPadding,
+    paddingHorizontal: responsiveWidth(3)
   },
   header: {
     color: colors.headerTxtColor,
     fontSize: size.secondHeader,
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
     textAlign: 'center',
     bottom: responsiveHeight(3)
   },
   label: {
     color: colors.textColor,
     fontSize: responsiveFontSize(18),
-    fontWeight: "600",
-    paddingVertical: responsiveHeight(1)
+    fontFamily: appfonts.openSansSemiBold,
+    paddingVertical: responsiveHeight(1),
+    paddingHorizontal: responsiveWidth(4)
   },
   dropdown: {
     backgroundColor: "#81818126",
@@ -142,7 +147,7 @@ const styles = StyleSheet.create({
   placeholder: {
     color: colors.textColor,
     fontSize: responsiveFontSize(18),
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
   },
   btmWidth: {
     borderBottomWidth: 1,
@@ -160,20 +165,24 @@ const styles = StyleSheet.create({
   },
   gamesTxt: {
     fontSize: responsiveFontSize(18),
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
     color: colors.textColor,
   },
   topWidth: {
     flex: 1,
+    width: responsiveWidth(90),
+    alignSelf: 'center',
     borderTopWidth: 1,
     borderColor: '#676767',
     bottom: responsiveHeight(9)
   },
   levelWidth: {
     height: responsiveHeight(1),
+    width: responsiveWidth(90),
     borderRadius: responsiveFontSize(27),
     backgroundColor: "#81818126",
-    bottom: responsiveHeight(15)
+    bottom: responsiveHeight(15),
+    alignSelf: 'center'
   },
   levelWidthbg: {
     width: responsiveWidth(38),
@@ -205,9 +214,10 @@ const styles = StyleSheet.create({
   },
   Txt: {
     fontSize: responsiveFontSize(18),
-    fontWeight: '700',
+    fontFamily: appfonts.openSansBold,
     color: '#FFFFFF',
-    paddingHorizontal: responsiveWidth(2)
+    paddingHorizontal: responsiveWidth(7),
+    marginTop: responsiveHeight(1)
   },
   nextBtn: {
     backgroundColor: colors.buttonbgColor,
@@ -225,7 +235,7 @@ const styles = StyleSheet.create({
   nextText: {
     color: colors.buttonTxtColor,
     fontSize: size.buttonText,
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
   },
 });
 

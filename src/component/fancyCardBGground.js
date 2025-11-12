@@ -16,7 +16,7 @@ const FancyCardBackground = ({ children }) => {
 const styles = StyleSheet.create({
   container: {
     width: width * 1,           // 90% of screen width
-    height: height * 0.90,        // 85% of screen height
+    height: height *0.90,
     borderTopRightRadius: width * 0.15, // radius proportional to screen size
     borderTopLeftRadius: width * 0.15,
     overflow: 'hidden',

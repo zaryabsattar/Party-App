@@ -5,7 +5,8 @@ import SimpleBackground from "../component/simpleBgColor";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const CreatePartyScreen = ({ navigation }) => {
 
@@ -15,7 +16,7 @@ const CreatePartyScreen = ({ navigation }) => {
 
   return (
     <SimpleBackground>
-    <KeyboardScrollVeiw>
+      <ScrollViews.WithKeyboardAvoidingView>
         <View style={styles.main}>
 
           <TouchableOpacity
@@ -93,16 +94,12 @@ const CreatePartyScreen = ({ navigation }) => {
           </TouchableOpacity>
 
         </View>
-     </KeyboardScrollVeiw>
+      </ScrollViews.WithKeyboardAvoidingView>
     </SimpleBackground>
   );
 };
 
 const styles = StyleSheet.create({
-  scroll: {
-    alignItems: "center",
-    paddingBottom: responsiveHeight(3),
-  },
   main: {
     flex: 1,
     paddingVertical: responsiveHeight(3),
@@ -117,14 +114,14 @@ const styles = StyleSheet.create({
   header: {
     color: colors.headerTxtColor,
     fontSize: responsiveFontSize(24),
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
     marginBottom: responsiveHeight(2),
     textAlign: 'center',
   },
   label: {
     color: colors.headerTxtColor,
     fontSize: responsiveFontSize(16),
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
     marginTop: responsiveHeight(2),
     marginBottom: responsiveHeight(1),
     paddingHorizontal: responsiveWidth(1)
@@ -137,6 +134,7 @@ const styles = StyleSheet.create({
     height: size.TextInputHeight,
     color: colors.textInputColor,
     fontSize: responsiveFontSize(14),
+    fontFamily: appfonts.openSansRegular,
     alignSelf: 'center'
   },
   dropdown: {
@@ -153,6 +151,7 @@ const styles = StyleSheet.create({
   placeholder: {
     color: "#E3E3E3",
     fontSize: responsiveFontSize(14),
+    fontFamily: appfonts.openSansRegular,
   },
   textarea: {
     backgroundColor: "#8B8B8B26",
@@ -161,6 +160,7 @@ const styles = StyleSheet.create({
     padding: responsiveWidth(5),
     textAlignVertical: "top",
     fontSize: responsiveFontSize(14),
+    fontFamily: appfonts.openSansRegular,
   },
   nextBtn: {
     backgroundColor: colors.buttonbgColor,
@@ -179,7 +179,7 @@ const styles = StyleSheet.create({
   nextText: {
     color: colors.buttonTxtColor,
     fontSize: size.buttonText,
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
   },
 });
 

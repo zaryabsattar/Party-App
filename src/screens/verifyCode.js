@@ -7,7 +7,8 @@ import { colors } from "../services/utilites/color";
 import { images } from "../services/utilites/assest/images";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const VerifyCodeScreen = ({ navigation }) => {
 
@@ -22,107 +23,105 @@ const VerifyCodeScreen = ({ navigation }) => {
 
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
-            <View style={styles.main}>
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main}>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("ForgotPasswordScreen")}
-                    style={styles.back} >
-                    <Icon
-                        name='arrow-back'
-                        color={colors.arrowBackColor}
-                        size={size.arrowBackSize}
-                    />
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("ForgotPasswordScreen")}
+                        style={styles.back} >
+                        <Icon
+                            name='arrow-back'
+                            color={colors.arrowBackColor}
+                            size={size.arrowBackSize}
+                        />
+                    </TouchableOpacity>
 
-                <Image source={images.applogo} style={styles.img} />
+                    <Image source={images.applogo} style={styles.img} />
 
-                <FancyCardBackground>
-                    <View style={{ margin: size.headerMargin }}>
-                        <Text style={styles.txtVCode}>Verify Code</Text>
-                        <Text style={styles.txt}>Code has been send to your email</Text>
+                    <FancyCardBackground>
+                        <View style={{ margin: size.headerMargin }}>
+                            <Text style={styles.txtVCode}>Verify Code</Text>
+                            <Text style={styles.txt}>Code has been send to your email</Text>
 
-                        <View style={styles.timerview}>
-                            <Text style={styles.txtTimer}>00:120</Text>
-                            <Text style={styles.txtSec}>Sec</Text>
+                            <View style={styles.timerview}>
+                                <Text style={styles.txtTimer}>00:120</Text>
+                                <Text style={styles.txtSec}>Sec</Text>
+                            </View>
+
+                            <View style={{ flexDirection: 'row', justifyContent: 'center', gap: responsiveWidth(6) }}>
+                                <TextInput
+                                    placeholder=""
+                                    placeholderTextColor="#FFFFFF"
+                                    value={firstCode}
+                                    onChangeText={(text) => {
+                                        setFirstCode(text);
+                                        if (text.length === 1) secondRef.current?.focus(); // move to next box
+                                    }}
+                                    style={styles.txtInput}
+                                    maxLength={1}            // added
+                                    keyboardType="number-pad" // added
+                                />
+                                <TextInput
+                                    ref={secondRef}
+                                    placeholder=""
+                                    placeholderTextColor="#FFFFFF"
+                                    value={secondCode}
+                                    onChangeText={(text) => {
+                                        setSecondCode(text);
+                                        if (text.length === 1) thirdRef.current?.focus(); // move to next box
+                                    }}
+                                    style={styles.txtInput}
+                                    maxLength={1}            // added
+                                    keyboardType="number-pad" // added
+                                />
+                                <TextInput
+                                    ref={thirdRef}
+                                    placeholder=""
+                                    placeholderTextColor="#FFFFFF"
+                                    value={thirdCode}
+                                    onChangeText={(text) => {
+                                        setThirdCode(text);
+                                        if (text.length === 1) fourthRef.current?.focus(); // move to next box
+                                    }}
+                                    style={styles.txtInput}
+                                    maxLength={1}            // added
+                                    keyboardType="number-pad" // added
+                                />
+                                <TextInput
+                                    ref={fourthRef}
+                                    placeholder=""
+                                    placeholderTextColor="#FFFFFF"
+                                    value={fourthCode}
+                                    onChangeText={setFourthCode}
+                                    style={styles.txtInput}
+                                    maxLength={1}            // added
+                                    keyboardType="number-pad" // added
+                                />
+                            </View>
+
+                            <View
+                                style={{
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    paddingVertical: responsiveHeight(5),
+                                    gap: responsiveWidth(1)
+                                }}>
+                                <Text style={styles.txtReceived}>Don’t receive code ?</Text>
+                                <Text style={styles.txtSend}>Re-send</Text>
+                            </View>
+
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("LoginScreen")}
+                                style={styles.btn} >
+                                <Text style={styles.btnTxt}>Submit</Text>
+                            </TouchableOpacity>
+
                         </View>
 
-                        <View style={{ flexDirection: 'row', justifyContent: 'center', gap: responsiveWidth(6) }}>
-                            <TextInput
-                                placeholder=""
-                                placeholderTextColor="#FFFFFF"
-                                value={firstCode}
-                                onChangeText={(text) => {
-                                    setFirstCode(text);
-                                    if (text.length === 1) secondRef.current?.focus(); // move to next box
-                                }}
-                                style={styles.txtInput}
-                                maxLength={1}            // added
-                                keyboardType="number-pad" // added
-                            />
-                            <TextInput
-                                ref={secondRef}
-                                placeholder=""
-                                placeholderTextColor="#FFFFFF"
-                                value={secondCode}
-                                onChangeText={(text) => {
-                                    setSecondCode(text);
-                                    if (text.length === 1) thirdRef.current?.focus(); // move to next box
-                                }}
-                                style={styles.txtInput}
-                                maxLength={1}            // added
-                                keyboardType="number-pad" // added
-                            />
-                            <TextInput
-                                ref={thirdRef}
-                                placeholder=""
-                                placeholderTextColor="#FFFFFF"
-                                value={thirdCode}
-                                onChangeText={(text) => {
-                                    setThirdCode(text);
-                                    if (text.length === 1) fourthRef.current?.focus(); // move to next box
-                                }}
-                                style={styles.txtInput}
-                                maxLength={1}            // added
-                                keyboardType="number-pad" // added
-                            />
-                            <TextInput
-                                ref={fourthRef}
-                                placeholder=""
-                                placeholderTextColor="#FFFFFF"
-                                value={fourthCode}
-                                onChangeText={setFourthCode}
-                                style={styles.txtInput}
-                                maxLength={1}            // added
-                                keyboardType="number-pad" // added
-                            />
-                        </View>
+                    </FancyCardBackground>
 
-                        <View
-                            style={{
-                                flexDirection: 'row',
-                                justifyContent: 'center',
-                                paddingVertical: responsiveHeight(5),
-                                gap: responsiveWidth(1)
-                            }}>
-                            <Text style={styles.txtReceived}>Don’t receive code ?</Text>
-                            <Text style={styles.txtSend}>Re-send</Text>
-                        </View>
-
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate("LoginScreen")}
-                            style={styles.btn} >
-                            <Text style={styles.btnTxt}>Submit</Text>
-                        </TouchableOpacity>
-
-
-
-                    </View>
-
-                </FancyCardBackground>
-
-            </View>
-            </KeyboardScrollVeiw>
+                </View>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
     )
 };
@@ -143,13 +142,14 @@ const styles = StyleSheet.create({
     },
     txtVCode: {
         fontSize: size.header,
-        fontWeight: 'bold',
+        fontFamily: appfonts.openSansBold,
         color: colors.headerTxtColor,
     },
     txt: {
         paddingVertical: responsiveHeight(0.5),
         color: "#A8A8A8",
         fontSize: size.TextInputFontSize,
+        fontFamily: appfonts.openSansRegular,
     },
     timerview: {
         flexDirection: 'row',
@@ -160,16 +160,16 @@ const styles = StyleSheet.create({
     txtTimer: {
         color: '#B3B3B3',
         fontSize: responsiveFontSize(14),
-        fontWeight: '500'
+        fontFamily: appfonts.poppinsMedium,
     },
     txtSec: {
         fontSize: responsiveFontSize(14),
         color: colors.textColor,
-        fontWeight: '600',
+        fontFamily: appfonts.poppinsSemibold,
     },
     txtInput: {
         fontSize: size.TextInputFontSize,
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         width: responsiveWidth(16),
         height: size.TextInputHeight,
         borderRadius: size.buttonBorderRadios,
@@ -181,12 +181,12 @@ const styles = StyleSheet.create({
     txtReceived: {
         fontSize: responsiveFontSize(14),
         color: '#B3B3B3',
-        fontWeight: '400',
+        fontFamily: appfonts.poppinsRegular,
     },
     txtSend: {
         fontSize: responsiveFontSize(14),
         color: '#5A5A5A',
-        fontWeight: '600',
+        fontFamily: appfonts.poppinsSemibold,
         textDecorationLine: 'underline',
         textDecorationStyle: 'solid'
     },
@@ -205,7 +205,7 @@ const styles = StyleSheet.create({
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
         textAlign: 'center',
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
 
 })

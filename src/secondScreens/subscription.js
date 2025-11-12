@@ -5,6 +5,7 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const SubscriptionScreen = ({ navigation }) => {
@@ -110,11 +111,12 @@ const styles = StyleSheet.create({
     },
     back: {
         paddingTop: size.arrowBackPadding,
+        paddingHorizontal: responsiveWidth(3)
     },
     txtChoosePlane: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
-        color: '#FFFFFF',
+        fontFamily: appfonts.openSansSemiBold,
+        color: colors.headerTxtColor,
         bottom: responsiveHeight(3)
     },
     cardone: {
@@ -131,24 +133,23 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(20),
-        fontWeight: 'bold',
-        color: '#FFFFFF'
+        fontFamily: appfonts.openSansBold,
+        color: colors.textColor
     },
     message: {
         fontSize: responsiveFontSize(15),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#ECECEC',
-
     },
     time: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: '#ECECEC',
         marginTop: responsiveHeight(0.5)
     },
     price: {
         fontSize: responsiveFontSize(20),
-        fontWeight: '600',
+        ffontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
         paddingHorizontal: responsiveWidth(1)
     },
@@ -189,7 +190,7 @@ const styles = StyleSheet.create({
     },
     btnTxt: {
         fontSize: size.buttonText,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.buttonTxtColor,
     },
     SelectedCard: {

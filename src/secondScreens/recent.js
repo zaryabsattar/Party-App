@@ -7,7 +7,8 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const RecentScreen = ({ navigation }) => {
     const [showModal, setShowModal] = useState(false);
@@ -21,9 +22,9 @@ const RecentScreen = ({ navigation }) => {
     return (
 
         <SimpleBackground>
-             <KeyboardScrollVeiw>
+            <ScrollViews.WithKeyboardAvoidingView>
 
-                <View style={{ flex: 1, }}>
+                <View style={{ flex: 1, marginHorizontal: responsiveWidth(3.5) }}>
                     <TouchableOpacity
                         onPress={() => setShowSideMenu(true)}
                         style={{ position: 'relative', }}>
@@ -215,7 +216,7 @@ const RecentScreen = ({ navigation }) => {
                                     end={{ x: 1, y: 0 }}     // top-left
                                     style={{
                                         ...StyleSheet.absoluteFillObject,
-                                        borderRadius: responsiveFontSize(12), // pubg image ke sath match karega
+                                        borderRadius: responsiveFontSize(12),
                                     }}>
                                     <View
                                         style={{
@@ -598,7 +599,7 @@ const RecentScreen = ({ navigation }) => {
 
                 </View>
 
-            </KeyboardScrollVeiw>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
 
     )
@@ -612,7 +613,7 @@ const styles = StyleSheet.create({
     },
     txtR: {
         fontSize: size.header,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         paddingVertical: responsiveHeight(1)
     },
@@ -623,7 +624,7 @@ const styles = StyleSheet.create({
     },
     txtInput: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         paddingHorizontal: responsiveWidth(3),
         color: colors.textInputColor,
     },
@@ -660,7 +661,7 @@ const styles = StyleSheet.create({
     },
     txtLive: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#F2F2F2',
         width: responsiveWidth(12),
         height: responsiveHeight(3.8),
@@ -671,7 +672,7 @@ const styles = StyleSheet.create({
     },
     txtIcon: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
     },
     visibiity: {
@@ -702,7 +703,7 @@ const styles = StyleSheet.create({
     },
     txtModal: {
         color: colors.textColor,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         fontSize: responsiveFontSize(10),
         paddingHorizontal: responsiveHeight(0.7),
         paddingVertical: responsiveWidth(1.5),
@@ -720,20 +721,20 @@ const styles = StyleSheet.create({
     },
     txtEllipse1116: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
         paddingHorizontal: responsiveWidth(3)
     },
     secondtxtEllipse1116: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
         marginRight: responsiveWidth(21),
         bottom: responsiveHeight(4),
     },
     thirdEllipse1116: {
         fontSize: responsiveFontSize(10),
-        fontWeight: '400',
+        fontFamily: appfonts.poppinsRegular,
         color: '#F2F2F2',
     },
     absoluteFillObject: {
@@ -762,7 +763,7 @@ const styles = StyleSheet.create({
     menuItem: {
         color: '#AEAEAE',
         fontSize: responsiveFontSize(20),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         paddingHorizontal: responsiveWidth(3),
     },
     secondProfilePhoto: {
@@ -774,12 +775,12 @@ const styles = StyleSheet.create({
     },
     userName: {
         fontSize: responsiveFontSize(28),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: colors.headerTxtColor
     },
     userEmail: {
         fontSize: responsiveFontSize(14),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#D7D7D7'
     },
     logoutBtn: {
@@ -798,7 +799,7 @@ const styles = StyleSheet.create({
     logoutBtnTxt: {
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         paddingHorizontal: 10,
     },
     btnBg: {
@@ -809,7 +810,6 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         alignItems: 'center',
         paddingHorizontal: responsiveWidth(3)
-
     },
 
 })

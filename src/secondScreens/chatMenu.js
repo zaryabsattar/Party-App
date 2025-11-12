@@ -5,7 +5,8 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const ChatMenuScreen = ({ navigation }) => {
 
@@ -25,7 +26,7 @@ const ChatMenuScreen = ({ navigation }) => {
 
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
+            <ScrollViews.WithKeyboardAvoidingView>
                 <View style={styles.main} >
 
                     <TouchableOpacity
@@ -381,7 +382,9 @@ const ChatMenuScreen = ({ navigation }) => {
 
                 </View>
 
-            </KeyboardScrollVeiw>
+                <View style={{ marginBottom: responsiveHeight(2) }} />
+
+            </ScrollViews.WithKeyboardAvoidingView>
 
         </SimpleBackground >
 
@@ -394,12 +397,12 @@ const styles = StyleSheet.create({
         flex: 1,
     },
     back: {
-        paddingTop: responsiveHeight(5)
-
+        paddingTop: responsiveHeight(5),
+        paddingHorizontal: responsiveWidth(3)
     },
     txtChatMenu: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         bottom: responsiveHeight(3)
     },
@@ -417,7 +420,7 @@ const styles = StyleSheet.create({
         flex: 1,
         paddingHorizontal: responsiveWidth(4),
         fontSize: responsiveFontSize(18),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: colors.textInputColor
     },
     searchBtn: {
@@ -447,18 +450,17 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor
     },
     message: {
         fontSize: responsiveFontSize(14),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#A5A5A5',
-
     },
     time: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#A5A5A5',
         marginTop: responsiveHeight(1)
     },
@@ -481,7 +483,7 @@ const styles = StyleSheet.create({
     },
     menuBoxTxt: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         paddingHorizontal: responsiveWidth(2)
     },
@@ -501,13 +503,13 @@ const styles = StyleSheet.create({
     },
     modalTitle: {
         fontSize: responsiveFontSize(18),
-        fontWeight: "700",
+        fontFamily: appfonts.openSansBold,
         color: colors.textColor,
         marginBottom: responsiveHeight(2)
     },
     modalMsg: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: "#E1E1E1",
         paddingHorizontal: responsiveWidth(9.5),
         marginBottom: responsiveHeight(3)
@@ -528,7 +530,7 @@ const styles = StyleSheet.create({
     },
     cancelTxt: {
         color: colors.buttonTxtColor,
-        fontWeight: "400",
+        fontFamily: appfonts.openSansRegular,
         fontSize: responsiveFontSize(12),
     },
     blockBtn: {
@@ -543,7 +545,7 @@ const styles = StyleSheet.create({
     },
     blockTxt: {
         color: colors.buttonTxtColor,
-        fontWeight: "400",
+        fontFamily: appfonts.openSansRegular,
         fontSize: responsiveFontSize(12),
     },
 

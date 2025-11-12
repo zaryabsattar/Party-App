@@ -5,7 +5,9 @@ import SimpleBackground from "../component/simpleBgColor";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
+
 
 const BlockedPeopleScreen = ({ navigation }) => {
 
@@ -20,36 +22,36 @@ const BlockedPeopleScreen = ({ navigation }) => {
 
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
-            <View style={styles.main}>
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main}>
 
-                <View style={styles.back}>
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate("RecentScreen")}
-                    >
-                        <Icon
-                            name='arrow-back'
-                            color={colors.arrowBackColor}
-                            size={size.arrowBackSize}
-                        />
-                    </TouchableOpacity>
-
-                    <Text style={styles.header}>Blocked People</Text>
-                </View>
-
-                {users.map((item) => (
-                    <View key={item.id} style={styles.bg}>
-                        <Image source={item.image} style={styles.img} />
-                        <Text style={styles.name}>{item.name}</Text>
-                        <TouchableOpacity>
-                            <Text style={styles.unblock}>Unblock</Text>
+                    <View style={styles.back}>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("RecentScreen")}
+                        >
+                            <Icon
+                                name='arrow-back'
+                                color={colors.arrowBackColor}
+                                size={size.arrowBackSize}
+                            />
                         </TouchableOpacity>
+
+                        <Text style={styles.header}>Blocked People</Text>
                     </View>
-                ))}
+
+                    {users.map((item) => (
+                        <View key={item.id} style={styles.bg}>
+                            <Image source={item.image} style={styles.img} />
+                            <Text style={styles.name}>{item.name}</Text>
+                            <TouchableOpacity>
+                                <Text style={styles.unblock}>Unblock</Text>
+                            </TouchableOpacity>
+                        </View>
+                    ))}
 
 
-            </View>
-            </KeyboardScrollVeiw>
+                </View>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
     );
 };
@@ -61,12 +63,13 @@ const styles = StyleSheet.create({
     back: {
         flexDirection: "row",
         justifyContent: 'space-between',
-        paddingVertical: responsiveHeight(4)
+        paddingVertical: responsiveHeight(4),
+        paddingHorizontal: responsiveWidth(3)
     },
     header: {
         color: colors.headerTxtColor,
         fontSize: size.secondHeader,
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         marginRight: responsiveWidth(23)
     },
     bg: {
@@ -89,12 +92,12 @@ const styles = StyleSheet.create({
     name: {
         color: colors.textColor,
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
     unblock: {
         color: colors.buttonTxtColor,
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         width: responsiveWidth(23),
         height: responsiveHeight(5),
         borderRadius: responsiveFontSize(12),

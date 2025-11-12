@@ -6,6 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const LiveStreamScreen = ({ navigation }) => {
   const [styleType, setStyleType] = useState("");
@@ -142,13 +143,13 @@ const styles = StyleSheet.create({
   headerText: {
     color: colors.headerTxtColor,
     fontSize: size.secondHeader,
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
     marginRight: responsiveWidth(26),
   },
   title: {
     color: colors.headerTxtColor,
     fontSize: responsiveFontSize(22),
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
     marginVertical: responsiveHeight(3),
   },
   input: {
@@ -159,7 +160,7 @@ const styles = StyleSheet.create({
     color: colors.textInputColor,
     padding: responsiveWidth(3),
     fontSize: responsiveFontSize(14),
-    fontWeight: '600',
+    fontFamily: appfonts.openSansSemiBold,
     marginTop: responsiveHeight(1.3),
   },
   locationBox: {
@@ -175,7 +176,7 @@ const styles = StyleSheet.create({
   locationText: {
     color: "#DDDDDD",
     fontSize: responsiveFontSize(14),
-    fontWeight: '600',
+    fontFamily: appfonts.openSansSemiBold,
     marginLeft: responsiveWidth(1),
   },
   tagBox: {
@@ -190,7 +191,7 @@ const styles = StyleSheet.create({
   },
   tagTxt: {
     fontSize: responsiveFontSize(14),
-    fontWeight: '600',
+    fontFamily: appfonts.openSansSemiBold,
     color: '#DDDDDD',
     paddingHorizontal: responsiveWidth(3)
   },
@@ -228,7 +229,7 @@ const styles = StyleSheet.create({
   textarea: {
     color: colors.textInputColor,
     fontSize: responsiveFontSize(14),
-
+    fontFamily: appfonts.openSansSemiBold,
   },
   goLiveBtn: {
     backgroundColor: colors.buttonbgColor,
@@ -246,7 +247,7 @@ const styles = StyleSheet.create({
   goLiveText: {
     color: colors.buttonTxtColor,
     fontSize: size.buttonText,
-    fontWeight: "600",
+    fontFamily: appfonts.openSansSemiBold,
   },
 });
 

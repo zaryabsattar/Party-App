@@ -6,104 +6,105 @@ import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const MessageScreen = ({ navigation }) => {
 
     const [text, setText] = useState("");
     return (
         <SimpleBackground>
-             <KeyboardScrollVeiw>
-            <View style={styles.main} >
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main} >
 
-                <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
+                    <View style={{ flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
 
-                    <TouchableOpacity
-                        onPress={() => navigation.navigate("ChatMenuScreen")}
-                        style={styles.back} >
-                        <MaterialIcons
-                            name='arrow-back'
-                            color={colors.arrowBackColor}
-                            size={size.arrowBackSize}
-                        />
-                    </TouchableOpacity>
+                        <TouchableOpacity
+                            onPress={() => navigation.navigate("ChatMenuScreen")}
+                            style={styles.back} >
+                            <MaterialIcons
+                                name='arrow-back'
+                                color={colors.arrowBackColor}
+                                size={size.arrowBackSize}
+                            />
+                        </TouchableOpacity>
 
-                    <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
+                        <View style={{ flex: 1, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', }}>
 
-                        <Image source={require("../assets/image/Ellipse1122.jpg")} style={styles.Photo} />
+                            <Image source={require("../assets/image/Ellipse1122.jpg")} style={styles.Photo} />
 
-                        <View style={styles.loginOpetion} />
-                        <Text style={styles.name}>Christina Pearsin</Text>
+                            <View style={styles.loginOpetion} />
+                            <Text style={styles.name}>Christina Pearsin</Text>
+                        </View>
+
                     </View>
 
-                </View>
-
-                <View style={{ alignItems: 'center', marginLeft: responsiveWidth(44), bottom: responsiveHeight(3.5) }}>
-                    <Text style={styles.active}>Active now</Text>
-                </View>
+                    <View style={{ alignItems: 'center', marginLeft: responsiveWidth(44), bottom: responsiveHeight(3.5) }}>
+                        <Text style={styles.active}>Active now</Text>
+                    </View>
 
 
-                <View style={{ flexDirection: 'row', paddingHorizontal: responsiveWidth(5), }}>
+                    <View style={{ flexDirection: 'row', paddingHorizontal: responsiveWidth(5), }}>
 
-                    <Image source={require("../assets/image/Ellipse1122.jpg")} style={styles.chatPhoto} />
+                        <Image source={require("../assets/image/Ellipse1122.jpg")} style={styles.chatPhoto} />
 
-                    <View style={styles.chatloginOpetion} />
-                    <View style={{ marginTop: responsiveHeight(3) }}>
+                        <View style={styles.chatloginOpetion} />
+                        <View style={{ marginTop: responsiveHeight(3) }}>
+                            <View style={styles.chatBox}>
+                                <Text style={styles.chatText}>Hi, how are you!</Text>
+                            </View>
+                        </View>
+
+                    </View>
+
+
+                    <View style={{ paddingHorizontal: responsiveWidth(17) }}>
                         <View style={styles.chatBox}>
-                            <Text style={styles.chatText}>Hi, how are you!</Text>
+                            <Text style={styles.chatText}>what is your name and where are you from</Text>
                         </View>
                     </View>
 
-                </View>
 
-
-                <View style={{ paddingHorizontal: responsiveWidth(17) }}>
-                    <View style={styles.chatBox}>
-                        <Text style={styles.chatText}>what is your name and where are you from</Text>
+                    <View style={{ paddingHorizontal: responsiveWidth(17) }}>
+                        <View style={styles.chatBox}>
+                            <Text style={styles.chatText}>what is your name and where are you from</Text>
+                        </View>
                     </View>
-                </View>
 
 
-                <View style={{ paddingHorizontal: responsiveWidth(17) }}>
-                    <View style={styles.chatBox}>
-                        <Text style={styles.chatText}>what is your name and where are you from</Text>
+                    <View style={{ alignSelf: 'flex-end', flexDirection: 'row-reverse', paddingHorizontal: responsiveWidth(5) }}>
+                        <Image source={require("../assets/image/msgsphoto2.jpg")} style={styles.secondchatPhoto} />
+                        <View style={{ paddingHorizontal: responsiveWidth(1), paddingVertical: responsiveHeight(0.5), marginTop: responsiveHeight(3) }}>
+                            <View style={styles.secondchatBox}>
+                                <Text style={styles.secondchatText}>My name is Arafat Ovi and i from America</Text>
+                            </View>
+                        </View>
                     </View>
-                </View>
 
 
-                <View style={{ alignSelf: 'flex-end', flexDirection: 'row-reverse', paddingHorizontal: responsiveWidth(5) }}>
-                    <Image source={require("../assets/image/msgsphoto2.jpg")} style={styles.secondchatPhoto} />
-                    <View style={{ paddingHorizontal: responsiveWidth(1), paddingVertical: responsiveHeight(0.5), marginTop: responsiveHeight(3) }}>
+                    <View style={{ alignSelf: 'flex-end', paddingHorizontal: responsiveWidth(17), }}>
                         <View style={styles.secondchatBox}>
                             <Text style={styles.secondchatText}>My name is Arafat Ovi and i from America</Text>
                         </View>
                     </View>
-                </View>
 
 
-                <View style={{ alignSelf: 'flex-end', paddingHorizontal: responsiveWidth(17), }}>
-                    <View style={styles.secondchatBox}>
-                        <Text style={styles.secondchatText}>My name is Arafat Ovi and i from America</Text>
+                    <View style={styles.btnInput}>
+                        <FontAwesome name='camera' size={20} color='#ACACAC' style={{ paddingHorizontal: responsiveWidth(2) }} />
+                        <TextInput
+                            placeholder="write something"
+                            placeholderTextColor='#ACACAC'
+                            value={text}
+                            onChangeText={setText}
+                            style={styles.txtInput}
+                        />
+                        <TouchableOpacity style={styles.IconBtn}>
+                            <FontAwesome name='send' size={25} color='white' />
+                        </TouchableOpacity>
                     </View>
+
                 </View>
-
-
-                <View style={styles.btnInput}>
-                    <FontAwesome name='camera' size={20} color='#ACACAC' style={{ paddingHorizontal: responsiveWidth(2) }} />
-                    <TextInput
-                        placeholder="write something"
-                        placeholderTextColor='#ACACAC'
-                        value={text}
-                        onChangeText={setText}
-                        style={styles.txtInput}
-                    />
-                    <TouchableOpacity style={styles.IconBtn}>
-                        <FontAwesome name='send' size={25} color='white' />
-                    </TouchableOpacity>
-                </View>
-
-            </View>
-            </KeyboardScrollVeiw>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
 
     )
@@ -115,11 +116,12 @@ const styles = StyleSheet.create({
         alignItems: 'flex-start',
     },
     back: {
-        paddingTop: size.arrowBackPadding,    
+        paddingTop: size.arrowBackPadding,
+        paddingHorizontal: responsiveWidth(2.5)
     },
     name: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
     },
     Photo: {
@@ -137,7 +139,7 @@ const styles = StyleSheet.create({
     },
     active: {
         fontSize: responsiveFontSize(14),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#A5A5A5',
     },
     chatBox: {
@@ -153,7 +155,7 @@ const styles = StyleSheet.create({
     chatText: {
         color: '#A5A5A5',
         fontSize: responsiveFontSize(15),
-        fontWeight: '600'
+        fontFamily: appfonts.openSansSemiBold,
     },
     chatPhoto: {
         width: size.photoWidth,
@@ -161,7 +163,7 @@ const styles = StyleSheet.create({
         borderRadius: size.photoBorderRadius,
     },
     chatloginOpetion: {
-       width: responsiveWidth(3),
+        width: responsiveWidth(3),
         height: responsiveHeight(1.5),
         borderRadius: responsiveFontSize(100),
         backgroundColor: '#21FF2A',
@@ -181,7 +183,7 @@ const styles = StyleSheet.create({
     secondchatText: {
         color: '#FFFFFF',
         fontSize: responsiveFontSize(15.5),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
     secondchatPhoto: {
         width: size.photoWidth,
@@ -203,7 +205,7 @@ const styles = StyleSheet.create({
     txtInput: {
         flex: 1,
         fontSize: size.buttonText,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         paddingHorizontal: responsiveWidth(2.5),
         color: colors.buttonTxtColor
     },

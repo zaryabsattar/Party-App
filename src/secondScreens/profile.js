@@ -1,12 +1,13 @@
 import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, ScrollView } from "react-native";
+import { View, Text, StyleSheet, TouchableOpacity, ImageBackground, Image, } from "react-native";
 import SimpleBackground from "../component/simpleBgColor";
 import MaterialIcons from "react-native-vector-icons/MaterialIcons";
 import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const ProfileScreen = ({ navigation }) => {
@@ -18,7 +19,7 @@ const ProfileScreen = ({ navigation }) => {
 
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
+            <ScrollViews.WithKeyboardAvoidingView>
                 <View style={styles.main} >
 
                     <ImageBackground source={require("../assets/image/1stProfilePhoto.jpg")} style={styles.firstProfilePhoto} >
@@ -405,7 +406,7 @@ const ProfileScreen = ({ navigation }) => {
                             <Text
                                 style={{
                                     fontSize: responsiveFontSize(18),
-                                    fontWeight: '600',
+                                    fontFamily: appfonts.openSansSemiBold,
                                     color: colors.textColor
                                 }}>
                                 Meeting live stream
@@ -413,7 +414,7 @@ const ProfileScreen = ({ navigation }) => {
                             <Text
                                 style={{
                                     fontSize: responsiveFontSize(15),
-                                    fontWeight: '600',
+                                    fontFamily: appfonts.openSansSemiBold,
                                     color: '#C0C0C0',
                                 }}>
                                 Nurman Calondria
@@ -425,8 +426,8 @@ const ProfileScreen = ({ navigation }) => {
 
                 </View>
 
-            
-</KeyboardScrollVeiw>
+
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground >
 
     )
@@ -442,9 +443,8 @@ const styles = StyleSheet.create({
     },
     txtProfile: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
-
     },
     firstProfilePhoto: {
         width: responsiveWidth(100),
@@ -482,7 +482,7 @@ const styles = StyleSheet.create({
     },
     editTxt: {
         fontSize: responsiveFontSize(17),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
         paddingHorizontal: responsiveWidth(2.5)
     },
@@ -503,12 +503,12 @@ const styles = StyleSheet.create({
     },
     number: {
         fontSize: responsiveFontSize(16),
-        fontWeight: "600",
+        fontFamily: appfonts.openSansSemiBold,
         color: "#FFFFFF",
     },
     label: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: "#A5A5A5",
         marginTop: responsiveHeight(0.3)
     },
@@ -528,18 +528,18 @@ const styles = StyleSheet.create({
     },
     userDetail: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: '#E3E3E399',
     },
     userValue: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF',
     },
     Description: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
-        color: '#FFFFFF',
+        fontFamily: appfonts.openSansSemiBold,
+        color: colors.textColor,
         paddingHorizontal: responsiveWidth(5),
     },
     boxDescription: {
@@ -553,14 +553,14 @@ const styles = StyleSheet.create({
     },
     DescriptionBoxTxt: {
         fontSize: responsiveFontSize(16),
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: '#FFFFFF99',
         paddingHorizontal: responsiveWidth(3),
     },
     parties: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
-        color: '#FFFFFF',
+        fontFamily: appfonts.openSansSemiBold,
+        color: colors.textColor,
         paddingVertical: responsiveHeight(0.5),
         paddingHorizontal: responsiveWidth(5),
     },
@@ -573,12 +573,11 @@ const styles = StyleSheet.create({
     partiesPhotoiconBtn: {
         flexDirection: 'row',
         margin: responsiveWidth(2.5)
-
     },
     partiesPhotobtnTxt: {
         fontSize: responsiveFontSize(10),
-        fontWeight: '600',
-        color: '#FFFFFF',
+        fontFamily: appfonts.openSansSemiBold,
+        color: colors.textColor,
         paddingHorizontal: responsiveWidth(0.3)
     },
     partiesBox: {
@@ -589,7 +588,6 @@ const styles = StyleSheet.create({
         alignSelf: 'center',
         justifyContent: 'center',
         marginVertical: responsiveHeight(1)
-
     },
     dropBox: {
         position: "absolute",
@@ -602,8 +600,8 @@ const styles = StyleSheet.create({
     },
     dropBoxTxt: {
         fontSize: responsiveFontSize(8),
-        fontWeight: '600',
-        color: '#FFFFFF',
+        fontFamily: appfonts.openSansSemiBold,
+        color: colors.textColor,
         textAlign: "center",
         paddingVertical: responsiveHeight(1.2),
     },
@@ -643,8 +641,8 @@ const styles = StyleSheet.create({
     },
     secondDropBoxTxt: {
         fontSize: responsiveFontSize(12),
-        fontWeight: '600',
-        color: '#FFFFFF',
+        fontFamily: appfonts.openSansSemiBold,
+        color: colors.textColor,
         textAlign: "center",
         paddingVertical: responsiveHeight(2),
     },

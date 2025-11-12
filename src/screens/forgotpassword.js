@@ -7,8 +7,8 @@ import { colors } from "../services/utilites/color";
 import { images } from "../services/utilites/assest/images";
 import { responsiveHeight } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
-
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const ForgotPasswordScreen = ({ navigation }) => {
@@ -16,45 +16,46 @@ const ForgotPasswordScreen = ({ navigation }) => {
     const [email, setEmail] = useState("");
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
-            <View style={styles.main}>
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main}>
 
-                <TouchableOpacity
-                    onPress={() => navigation.navigate("LoginScreen")}
-                    style={styles.back} >
-                    <Icon
-                        name='arrow-back'
-                        color={colors.arrowBackColor}
-                        size={size.arrowBackSize}
-                    />
-                </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("LoginScreen")}
+                        style={styles.back} >
+                        <Icon
+                            name='arrow-back'
+                            color={colors.arrowBackColor}
+                            size={size.arrowBackSize}
+                        />
+                    </TouchableOpacity>
 
-                <Image source={images.applogo} style={styles.img} />
+                    <Image source={images.applogo} style={styles.img} />
 
-                <FancyCardBackground>
-                    <View>
-                        <Text style={styles.txtFP}>Forgot password</Text>
-                    </View>
+                    <FancyCardBackground>
+                        <View>
+                            <Text style={styles.txtFP}>Forgot password</Text>
+                        </View>
 
-                    <View style={{ alignItems: "center" }}>
-                        <TextInput
-                            placeholder="Email"
-                            placeholderTextColor='#E3E3E3'
-                            value={email}
-                            onChangeText={setEmail}
-                            style={styles.txtInput} />
+                        <View style={{ alignItems: "center" }}>
+                            <TextInput
+                                placeholder="Email"
+                                placeholderTextColor='#E3E3E3'
+                                value={email}
+                                onChangeText={setEmail}
+                                style={styles.txtInput} />
 
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate("ForgotNewPasswordScreen")}
-                            style={styles.btn} >
-                            <Text style={styles.btnTxt}>Continue</Text>
-                        </TouchableOpacity>
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("ForgotNewPasswordScreen")}
+                                style={styles.btn} >
+                                <Text style={styles.btnTxt}>Continue</Text>
+                            </TouchableOpacity>
 
-                    </View>
-                </FancyCardBackground>
+                        </View>
+                        
+                    </FancyCardBackground>
 
-            </View>
-            </KeyboardScrollVeiw>
+                </View>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
     )
 };
@@ -75,13 +76,13 @@ const styles = StyleSheet.create({
     },
     txtFP: {
         fontSize: size.header,
-        fontWeight: 'bold',
+        fontFamily: appfonts.openSansBold,
         color: colors.headerTxtColor,
         margin: size.headerMargin
     },
     txtInput: {
         fontSize: size.TextInputFontSize,
-        fontWeight: 'regular',
+        fontFamily: appfonts.openSansRegular,
         width: size.TextInputWidth,
         height: size.TextInputHeight,
         borderRadius: size.buttonBorderRadios,
@@ -107,7 +108,7 @@ const styles = StyleSheet.create({
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
         textAlign: 'center',
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
 
 

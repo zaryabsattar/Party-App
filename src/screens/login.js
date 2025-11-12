@@ -7,7 +7,8 @@ import { colors } from "../services/utilites/color";
 import { images } from "../services/utilites/assest/images";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts";
 
 const LoginScreen = ({ navigation }) => {
 
@@ -16,142 +17,144 @@ const LoginScreen = ({ navigation }) => {
     const [showPassword, setShowPassword] = useState(false);
     return (
         <SimpleBackground>
-          <KeyboardScrollVeiw>
-                    <View style={styles.main}>
+            <ScrollViews.WithKeyboardAvoidingView>
+                <View style={styles.main}>
 
-                        <TouchableOpacity
-                            onPress={() => navigation.navigate("WelcomeScreen")}
-                            style={styles.back} >
-                            <Icon
-                                name='arrow-back'
-                                color={colors.arrowBackColor}
-                                size={size.arrowBackSize}
-                            />
-                        </TouchableOpacity>
+                    <TouchableOpacity
+                        onPress={() => navigation.navigate("WelcomeScreen")}
+                        style={styles.back} >
+                        <Icon
+                            name='arrow-back'
+                            color={colors.arrowBackColor}
+                            size={size.arrowBackSize}
+                        />
+                    </TouchableOpacity>
 
-                        <Image source={images.applogo} style={styles.img} />
+                    <Image source={images.applogo} style={styles.img} />
 
-                        <FancyCardBackground>
-                            <View>
-                                <Text style={styles.txtL}>Log-in</Text>
+                    <FancyCardBackground>
+                        <View>
+                            <Text style={styles.txtL}>Log-in</Text>
+                        </View>
+
+                        <View style={{ alignItems: "center" }}>
+                            <TextInput
+                                placeholder="Email"
+                                placeholderTextColor='#E3E3E3'
+                                value={email}
+                                onChangeText={setEmail}
+                                style={styles.txtInput} />
+
+                            <View style={styles.Icon} >
+                                <TextInput
+                                    placeholder="Password"
+                                    placeholderTextColor='#E3E3E3'
+                                    value={password}
+                                    onChangeText={setPassword}
+                                    secureTextEntry={!showPassword}
+                                    style={{
+                                        fontSize: size.TextInputFontSize,
+                                        fontFamily: appfonts.openSansRegular,
+                                        color: colors.textInputColor,
+                                    }}
+
+                                />
+
+                                <TouchableOpacity
+                                    onPress={() => setShowPassword(!showPassword)}
+                                >
+
+                                    <Icon
+                                        name={showPassword ? 'visibility' : "visibility-off"}
+                                        color='#ACACAC'
+                                        size={responsiveFontSize(24)} />
+
+                                </TouchableOpacity>
                             </View>
 
-                            <View style={{ alignItems: "center" }}>
-                                <TextInput
-                                    placeholder="Email"
-                                    placeholderTextColor='#E3E3E3'
-                                    value={email}
-                                    onChangeText={setEmail}
-                                    style={styles.txtInput} />
 
-                                <View style={styles.Icon} >
-                                    <TextInput
-                                        placeholder="Password"
-                                        placeholderTextColor='#E3E3E3'
-                                        value={password}
-                                        onChangeText={setPassword}
-                                        secureTextEntry={!showPassword}
-                                        style={{
-                                            fontSize: size.TextInputFontSize,
-                                            fontWeight: 'regular',
-                                            color: colors.textInputColor,
-                                        }}
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("ForgotPasswordScreen")}
+                                style={{
+                                    alignSelf: 'flex-end',
+                                    paddingHorizontal: responsiveWidth(4)
+                                }}>
 
-                                    />
+                                <Text
+                                    style={{
+                                        fontSize: responsiveFontSize(12),
+                                        fontFamily: appfonts.openSansLight,
+                                        color: colors.textColor
+                                    }}>Forgot Password?</Text>
+                            </TouchableOpacity>
 
-                                    <TouchableOpacity
-                                        onPress={() => setShowPassword(!showPassword)}
-                                    >
 
-                                        <Icon
-                                            name={showPassword ? 'visibility' : "visibility-off"}
-                                            color='#ACACAC'
-                                            size={responsiveFontSize(24)} />
+                            <TouchableOpacity
+                                onPress={() => navigation.navigate("RecentScreen")}
+                                style={styles.btn} >
+                                <Text style={styles.btnTxt}>Log-in</Text>
+                            </TouchableOpacity>
 
-                                    </TouchableOpacity>
+                            <View style={styles.container}>
+                                <View style={styles.line} />
+                                <Text style={styles.txt}>or continue with</Text>
+                                <View style={styles.line} />
+                            </View>
+
+                            <View
+                                style={{
+                                    flexDirection: 'row',
+                                    gap: responsiveFontSize(15)
+                                }}>
+
+                                <View style={styles.Btnsbg}>
+                                    <Image source={require("../assets/image/fb.png")} />
+                                    <Text style={styles.BtnsTxt}>Facebook</Text>
                                 </View>
 
-
-                                <TouchableOpacity
-                                    onPress={() => navigation.navigate("ForgotPasswordScreen")}
-                                    style={{
-                                        alignSelf: 'flex-end',
-                                        paddingHorizontal: responsiveWidth(4)
-                                    }}>
-
-                                    <Text
-                                        style={{
-                                            fontSize: responsiveFontSize(12),
-                                            fontWeight: '300',
-                                            fontWeight: 'light',
-                                            color: colors.textColor
-                                        }}>Forgot Password?</Text>
-                                </TouchableOpacity>
-
-
-                                <TouchableOpacity
-                                    onPress={() => navigation.navigate("RecentScreen")}
-                                    style={styles.btn} >
-                                    <Text style={styles.btnTxt}>Log-in</Text>
-                                </TouchableOpacity>
-
-                                <View style={styles.container}>
-                                    <View style={styles.line} />
-                                    <Text style={styles.txt}>or continue with</Text>
-                                    <View style={styles.line} />
+                                <View style={styles.Btnsbg}>
+                                    <Image source={require("../assets/image/google.png")} />
+                                    <Text style={styles.BtnsTxt}>Google</Text>
                                 </View>
+                            </View>
 
-                                <View
+                            <View
+                                style={{
+                                    flexDirection: 'row',
+                                    justifyContent: 'center',
+                                    gap: responsiveWidth(1),
+                                    marginBottom: responsiveHeight(4)
+                                }}>
+
+                                <Text
                                     style={{
-                                        flexDirection: 'row',
-                                        gap: responsiveFontSize(15)
+                                        fontSize: responsiveFontSize(16),
+                                        color: '#FFFFFF',
+                                        marginTop: responsiveHeight(3)
                                     }}>
-
-                                    <View style={styles.Btnsbg}>
-                                        <Image source={require("../assets/image/fb.png")} />
-                                        <Text style={styles.BtnsTxt}>Facebook</Text>
-                                    </View>
-
-                                    <View style={styles.Btnsbg}>
-                                        <Image source={require("../assets/image/google.png")} />
-                                        <Text style={styles.BtnsTxt}>Google</Text>
-                                    </View>
-                                </View>
-
-                                <View
-                                    style={{
-                                        flexDirection: 'row',
-                                        justifyContent: 'center',
-                                        gap: responsiveWidth(1)
-                                    }}>
-
+                                    Already have account?
+                                </Text>
+                                <TouchableOpacity onPress={() => navigation.navigate("RegisterScreen")} >
                                     <Text
                                         style={{
                                             fontSize: responsiveFontSize(16),
-                                            color: '#FFFFFF',
+                                            color: '#F83094',
+                                            fontFamily: appfonts.openSansSemiBold,
                                             marginTop: responsiveHeight(3)
-                                        }}>
-                                        Already have account?
-                                    </Text>
-                                    <TouchableOpacity onPress={() => navigation.navigate("RegisterScreen")} >
-                                        <Text
-                                            style={{
-                                                fontSize: responsiveFontSize(16),
-                                                color: '#F83094',
-                                                fontWeight: '600',
-                                                marginTop: responsiveHeight(3)
 
-                                            }}>
-                                            Register
-                                        </Text>
-                                    </TouchableOpacity>
-                                </View>
+                                        }}>
+                                        Register
+                                    </Text>
+                                </TouchableOpacity>
 
                             </View>
-                        </FancyCardBackground>
 
-                    </View >
-               </KeyboardScrollVeiw>
+                        </View>
+
+                    </FancyCardBackground>
+
+                </View >
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
     )
 };
@@ -172,13 +175,13 @@ const styles = StyleSheet.create({
     },
     txtL: {
         fontSize: size.header,
-        fontWeight: 'bold',
+        fontFamily: appfonts.openSansBold,
         color: colors.headerTxtColor,
         margin: size.headerMargin
     },
     txtInput: {
         fontSize: size.TextInputFontSize,
-        fontWeight: 'regular',
+        fontFamily: appfonts.openSansRegular,
         width: size.TextInputWidth,
         height: size.TextInputHeight,
         borderRadius: size.buttonBorderRadios,
@@ -216,12 +219,12 @@ const styles = StyleSheet.create({
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
         textAlign: 'center',
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
     container: {
         flexDirection: "row",
         alignItems: "center",
-        marginTop: responsiveHeight(2)
+        marginTop: responsiveHeight(1.7)
     },
     line: {
         width: responsiveWidth(6),
@@ -231,7 +234,8 @@ const styles = StyleSheet.create({
     txt: {
         color: "#7B7B7B",
         fontSize: responsiveFontSize(14),
-        paddingHorizontal: responsiveWidth(1)
+        paddingHorizontal: responsiveWidth(1),
+        fontFamily: appfonts.openSansSemiBold,
     },
     Btnsbg: {
         marginTop: responsiveHeight(2),
@@ -247,10 +251,8 @@ const styles = StyleSheet.create({
     BtnsTxt: {
         fontSize: size.btnFbandGogleTxt,
         color: colors.buttonTxtColor,
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
     },
-
-
 
 })
 

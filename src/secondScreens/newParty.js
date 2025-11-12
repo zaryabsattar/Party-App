@@ -6,7 +6,7 @@ import LinearGradient from "react-native-linear-gradient";
 import { colors } from "../services/utilites/color";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { size } from "../services/utilites/size";
-
+import { appfonts } from "../services/utilites/assest/fonts";
 
 
 const NewPartyScreen = ({ navigation }) => {
@@ -160,14 +160,13 @@ const styles = StyleSheet.create({
         alignItems: 'center',
     },
     back: {
-
         paddingTop: size.arrowBackPadding,
         alignSelf: 'flex-start',
-        paddingLeft: responsiveWidth(2)
+        paddingLeft: responsiveWidth(3)
     },
     txtS: {
         fontSize: size.secondHeader,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         bottom: responsiveHeight(3)
     },
@@ -185,7 +184,7 @@ const styles = StyleSheet.create({
     },
     live: {
         fontSize: responsiveFontSize(23),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F2F2F2',
         paddingHorizontal: responsiveWidth(2),
         letterSpacing: responsiveFontSize(1),
@@ -211,7 +210,7 @@ const styles = StyleSheet.create({
     },
     btnTxt: {
         fontSize: responsiveFontSize(20),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
         bottom: responsiveHeight(4),
         marginLeft: responsiveWidth(9)
@@ -225,17 +224,17 @@ const styles = StyleSheet.create({
     },
     txtCricket: {
         fontSize: responsiveFontSize(20),
-        fontWeight: '700',
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
     },
     txtRatrya: {
         fontSize: responsiveFontSize(15),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.textColor,
     },
     txtfollowers: {
         fontSize: 14,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#B7B7B7',
     },
     btnFollow: {
@@ -250,7 +249,7 @@ const styles = StyleSheet.create({
     },
     txtFollow: {
         fontSize: responsiveFontSize(18),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.buttonTxtColor,
     },
     Line: {
@@ -264,12 +263,10 @@ const styles = StyleSheet.create({
 
         width: responsiveWidth(94),
         padding: responsiveWidth(4),
-
     },
     row: {
         flexDirection: "row",
         marginBottom: responsiveHeight(2.5),
-
     },
     avatar: {
         width: size.photoWidth,
@@ -279,12 +276,12 @@ const styles = StyleSheet.create({
     },
     name: {
         fontSize: responsiveFontSize(20),
-        fontWeight: "700",
+        fontFamily: appfonts.openSansBold,
         color: '#F4F3FC',
     },
     status: {
         fontSize: responsiveFontSize(15),
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: '#FFFFFF80',
     },
 

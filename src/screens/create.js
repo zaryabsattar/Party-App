@@ -5,14 +5,15 @@ import Icon from "react-native-vector-icons/MaterialIcons";
 import { size } from "../services/utilites/size";
 import { responsiveFontSize, responsiveHeight, responsiveWidth } from "../component/responsive";
 import { colors } from "../services/utilites/color";
-import KeyboardScrollVeiw  from "../services/utilites/assest/scrollVeiw";
+import { ScrollViews } from "../component";
+import { appfonts } from "../services/utilites/assest/fonts"
 
 const CreateScreen = ({ navigation }) => {
 
     const [text, setText] = useState("");
     return (
         <SimpleBackground>
-            <KeyboardScrollVeiw>
+            <ScrollViews.WithKeyboardAvoidingView>
                 <View style={styles.main} >
 
                     <TouchableOpacity
@@ -39,6 +40,7 @@ const CreateScreen = ({ navigation }) => {
                             flexDirection: 'row',
                             alignItems: 'center',
                             justifyContent: 'center',
+                            alignSelf: 'center',
                             gap: responsiveWidth(6),
                             paddingVertical: responsiveWidth(2)
                         }}>
@@ -89,7 +91,7 @@ const CreateScreen = ({ navigation }) => {
                     </View>
 
                 </View>
-          </KeyboardScrollVeiw>
+            </ScrollViews.WithKeyboardAvoidingView>
         </SimpleBackground>
 
     )
@@ -102,12 +104,13 @@ const styles = StyleSheet.create({
     },
     back: {
         paddingVertical: responsiveHeight(2),
-        right: responsiveWidth(1)
+        left: responsiveWidth(2)
     },
     txtCreate: {
         fontSize: responsiveFontSize(26),
-        fontWeight: '600',
         color: colors.headerTxtColor,
+        fontFamily: appfonts.openSansSemiBold,
+        paddingHorizontal: responsiveWidth(4),
     },
     uploadBox: {
         width: size.buttonWidth,
@@ -123,14 +126,15 @@ const styles = StyleSheet.create({
     },
     txtupload: {
         fontSize: size.TextInputFontSize,
-        fontWeight: '400',
+        fontFamily: appfonts.openSansRegular,
         color: colors.txtColor
     },
     txtPhoto: {
         fontSize: size.header,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
         marginTop: responsiveHeight(1.50),
+        paddingHorizontal: responsiveWidth(4),
     },
     photoBox: {
         width: responsiveWidth(26),
@@ -143,9 +147,10 @@ const styles = StyleSheet.create({
     },
     txtDescription: {
         fontSize: size.header,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
         color: colors.headerTxtColor,
-        paddingVertical: responsiveHeight(1)
+        paddingVertical: responsiveHeight(1),
+        paddingHorizontal: responsiveWidth(4),
     },
     DescriptionBox: {
         width: size.TextInputWidth,
@@ -170,11 +175,11 @@ const styles = StyleSheet.create({
     btnTxt: {
         color: colors.buttonTxtColor,
         fontSize: size.buttonText,
-        fontWeight: '600',
+        fontFamily: appfonts.openSansSemiBold,
     },
     txtInput: {
         fontSize: responsiveFontSize(12),
-        fontWeight: "400",
+        fontFamily: appfonts.openSansRegular,
         color: colors.txtColor,
     }
 
